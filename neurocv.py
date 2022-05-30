@@ -27,7 +27,10 @@ class Neros:
 
     def setCap(self, src, isVideo):
         self.isV = isVideo
-        self.capc = cv2.VideoCapture(src)
+        if isVideo:
+            self.capc = cv2.VideoCapture(src)
+        else:
+            self.capc = cv2.imread(src)
 
     def getCap(self):
         return self.capc
@@ -53,12 +56,15 @@ class Neros:
         for (x,y,w,h) in result:
             cv2.putText(self.img, 'Birth', (x, y -10), cv2.FONT_HERSHEY_COMPLEX, 0.5, (150, 250, 250), 1)
             cv2.rectangle(self.img, (x,y), (x+w, y+h), (0, 0, 255), 3)
+        return result
 
     def image(self):
-        self.img = capc
+        self.img = self.capc
+        self.img = cv2.resize(self.img, (800, 500))
         new_img = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
         result = self.neuros.detectMultiScale(new_img, self.scaleFactors, self.minNeighbor)
         for (x,y,w,h) in result:
 
             cv2.putText(self.img, 'Birth', (x, y -10), cv2.FONT_HERSHEY_COMPLEX, 0.5, (150, 250, 250), 1)
             cv2.rectangle(self.img, (x,y), (x+w, y+h), (0, 0, 255), 3)
+        return result
