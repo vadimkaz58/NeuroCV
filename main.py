@@ -78,12 +78,31 @@ while True:
 nc = ncc.Neros()
 nc.setCascad("cascade/" + src[srcc]['N.path'])
 if isVideo:
+    pause = False
     nc.setCap("videos/" + src[srcc]['path'], True)
     shot = 1
     while True:
         cnn.insertResultsV(src[srcc]['id'], nc.videoTic(), shot)
-        cv2.imshow(src[srcc]['name'], nc.getImg());
-        cv2.waitKey(2)
+        cv2.imshow(src[srcc]['name'], nc.getImg())
+        keyPress = 0
+        if pause:
+            keyPress = cv2.waitKey(0)
+        else:
+            keyPress = cv2.waitKey(2)
+        if keyPress & 0xFF == ord('p'):
+            if pause:
+                pause = False
+            else:
+                pause = True
+        elif keyPress & 0xFF == ord('o'):
+            nc.setNeuroSetting(nc.getNeuroSetting()[0] + 0.001,nc.getNeuroSetting()[1])
+        elif keyPress & 0xFF == ord('i'):
+            nc.setNeuroSetting(nc.getNeuroSetting()[0] - 0.001,nc.getNeuroSetting()[1])
+        elif keyPress & 0xFF == ord('u'):
+            nc.setNeuroSetting(nc.getNeuroSetting()[0],nc.getNeuroSetting()[1] + 1)
+        elif keyPress & 0xFF == ord('y'):
+            nc.setNeuroSetting(nc.getNeuroSetting()[0],nc.getNeuroSetting()[1] - 1)
+        print(nc.getNeuroSetting())
         shot += 1
 else:
     nc.setNeuroSetting(1.008, 4)

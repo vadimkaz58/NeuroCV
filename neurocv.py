@@ -50,6 +50,7 @@ class Neros:
 
     def videoTic(self):
         success, self.img = self.capc.read()
+        self.img = cv2.resize(self.img, (800, 500))
         new_img = cv2.cvtColor(self.img, cv2.COLOR_BGR2GRAY)
 
         result = self.neuros.detectMultiScale(new_img, self.scaleFactors, self.minNeighbor)
