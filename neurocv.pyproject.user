@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 7.0.1, 2022-06-13T20:01:50. -->
+<!-- Written by QtCreator 7.0.1, 2022-06-21T12:46:54. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -175,7 +175,7 @@
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">C:/qtprojects/neurocv/test.py</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">PythonEditor.RunConfiguration.C:/qtprojects/neurocv/test.py</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">C:/qtprojects/neurocv/test.py</value>
-    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{bfdbe4a6-6161-4a78-9cc4-3d9708ec25de}</value>
+    <value type="QString" key="PythonEditor.RunConfiguation.Interpreter">{31526ab9-84da-4809-94da-b7572c12249d}</value>
     <value type="QString" key="PythonEditor.RunConfiguation.Script">C:\qtprojects\neurocv\test.py</value>
     <value type="bool" key="RunConfiguration.UseCppDebugger">false</value>
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
