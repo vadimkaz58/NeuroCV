@@ -82,7 +82,10 @@ if isVideo:
     nc.setCap("videos/" + src[srcc]['path'], True, src[srcc]['N.name'])
     shot = 1
     while True:
-        cnn.insertResultsV(src[srcc]['id'], nc.videoTic(), shot)
+        try:
+            cnn.insertResultsV(src[srcc]['id'], nc.videoTic(), shot)
+        except Exception:
+            break
         cv2.imshow(src[srcc]['name'], nc.getImg())
         keyPress = 0
         if pause:
@@ -102,6 +105,8 @@ if isVideo:
             nc.setNeuroSetting(nc.getNeuroSetting()[0],nc.getNeuroSetting()[1] + 1)
         elif keyPress & 0xFF == ord('y'):
             nc.setNeuroSetting(nc.getNeuroSetting()[0],nc.getNeuroSetting()[1] - 1)
+        elif keyPress & 0xFF == ord('q'):
+            break
         print(nc.getNeuroSetting())
         shot += 1
 else:

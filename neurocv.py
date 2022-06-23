@@ -16,7 +16,7 @@ class Neros:
             self.capc = None
             self.neuros = None
             self.isV = False
-            self.scaleFactors = 2
+            self.scaleFactors = 1.008
             self.minNeighbor = 4
             self.img = None
 
