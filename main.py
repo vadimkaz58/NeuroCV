@@ -79,7 +79,7 @@ nc = ncc.Neros()
 nc.setCascad("cascade/" + src[srcc]['N.path'])
 if isVideo:
     pause = False
-    nc.setCap("videos/" + src[srcc]['path'], True)
+    nc.setCap("videos/" + src[srcc]['path'], True, src[srcc]['N.name'])
     shot = 1
     while True:
         cnn.insertResultsV(src[srcc]['id'], nc.videoTic(), shot)
@@ -106,7 +106,7 @@ if isVideo:
         shot += 1
 else:
     nc.setNeuroSetting(1.008, 4)
-    nc.setCap("images/" + src[srcc]['path'], False)
+    nc.setCap("images/" + src[srcc]['path'], False, src[srcc]['N.name'])
     cnn.insertResultsI(src[srcc]['id'], nc.image())
     cv2.imshow(src[srcc]['name'], nc.getImg());
     cv2.waitKey(0)

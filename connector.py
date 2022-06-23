@@ -16,13 +16,13 @@ class BDConnector:
         pass
     def selectVideos(self):
         with self.con:
-            self.cur.execute("SELECT S.path, S.name, N.path, S.id FROM source S, neuros N WHERE N.id = S.forNeuros and S.isVideo = 1")
+            self.cur.execute("SELECT S.path, S.name, N.path, S.id, N.name FROM source S, neuros N WHERE N.id = S.forNeuros and S.isVideo = 1")
             src = [[i for i in range(self.cur.rowcount)], [i for i in range(3)]]
             src = self.cur.fetchall()
             return src
     def selectImages(self):
         with self.con:
-            self.cur.execute("SELECT S.path, S.name, N.path, S.id FROM source S, neuros N WHERE N.id = S.forNeuros and S.isVideo = 0")
+            self.cur.execute("SELECT S.path, S.name, N.path, S.id, N.name FROM source S, neuros N WHERE N.id = S.forNeuros and S.isVideo = 0")
             src = [[i for i in range(self.cur.rowcount)], [i for i in range(3)]]
             src = self.cur.fetchall()
             return src
